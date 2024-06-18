@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Numbers</title>
+    <script>
+        // Function to check if a number is prime
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        // Function to display all prime numbers up to the input number
+        function displayPrimes() {
+            const n = parseInt(document.querySelector('#number').value); // Get input value
+            const resultDiv = document.querySelector('#result'); // Get result div
+            resultDiv.innerHTML = ''; // Clear previous results
+
+            // Iterate through numbers from 2 to n and check if they are prime
+            for (let i = 2; i <= n; i++) {
+                if (isPrime(i)) {
+                    resultDiv.innerHTML += i + '<br>'; // Display prime number under the previous display
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Prime Numbers</h1>
+    <input type="number" id="number" placeholder="Enter a number"> <!-- Input field for number -->
+    <button onclick="displayPrimes()">Show Primes</button> <!-- Button to trigger display -->
+    <div id="result"></div> <!-- Div to display the prime numbers -->
+</body>
+</html>
